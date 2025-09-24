@@ -95,7 +95,8 @@ pipeline {
                                 registryPassword: '${HARBOR_CREDENTIALS_PSW}',
                                 registryHost: "${HARBOR_HOST}",
                                 registryType: 'harbor2',
-                                pythonVersion: '3.13'
+                                pythonVersion: '3.13',
+                                isLatest: true,
                             )
                         }
                     }
@@ -164,6 +165,7 @@ pipeline {
                                 registryHost: "${DOCKER_HUB_HOST}",
                                 registryType: 'dockerhub',
                                 pythonVersion: '3.13'
+                                isLatest: true,
                             )
                         }
                     }
