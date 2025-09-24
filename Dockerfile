@@ -11,4 +11,4 @@ ENV POETRY_HOME=/opt/poetry \
     PATH=${PATH}:/opt/poetry/bin
 
 RUN python -m ensurepip --upgrade \
-    && python -m pip install --upgrade setuptools pip poetry
+    && python -m pip install --upgrade pip poetry setuptools
