@@ -1,11 +1,18 @@
 #!groovy
 @Library('jenkins-libraries') _
 
-CRON_SETTINGS = dockerRepository.periodicTrigger(env.BRANCH_NAME)
-
 pipeline {
+    agent {
+        node { label 'jenkins-node-label-1' }
+    }
+
+    environment {
+        PROJECT_NAME = 'poetry'
+        DOCKERFILE = './Dockerfile'
+    }
+
     triggers {
-        cron(CRON_SETTINGS)
+        cron("${dockerRepository.periodicTrigger(env.BRANCH_NAME)}")
     }
 
     agent {
@@ -28,7 +35,7 @@ pipeline {
                                 dockerfile: "${DOCKERFILE}",
                                 registryType: 'harbor2',
                                 pythonVersion: '3.10',
-                                poetryVersion: '2.1'
+                                poetryVersion: '2.1',
                                 customTags: ['2.1']
                             )
                         }
@@ -41,8 +48,8 @@ pipeline {
                                 imageName: "${PROJECT_NAME}",
                                 dockerfile: "${DOCKERFILE}",
                                 registryType: 'harbor2',
-                                pythonVersion: '3.11'
-                                poetryVersion: '2.1'
+                                pythonVersion: '3.11',
+                                poetryVersion: '2.1',
                                 customTags: ['2.1']
                             )
                         }
@@ -55,8 +62,8 @@ pipeline {
                                 imageName: "${PROJECT_NAME}",
                                 dockerfile: "${DOCKERFILE}",
                                 registryType: 'harbor2',
-                                pythonVersion: '3.12'
-                                poetryVersion: '2.1'
+                                pythonVersion: '3.12',
+                                poetryVersion: '2.1',
                                 customTags: ['2.1']
                             )
                         }
@@ -70,8 +77,8 @@ pipeline {
                                 dockerfile: "${DOCKERFILE}",
                                 registryType: 'harbor2',
                                 pythonVersion: '3.13',
-                                poetryVersion: '2.1'
-                                customTags: ['2.1']
+                                poetryVersion: '2.1',
+                                customTags: ['2.1'],
                                 isLatest: true,
                             )
                         }
@@ -84,8 +91,8 @@ pipeline {
                                 imageName: "${PROJECT_NAME}",
                                 dockerfile: "${DOCKERFILE}",
                                 registryType: 'dockerhub',
-                                pythonVersion: '3.10'
-                                poetryVersion: '2.1'
+                                pythonVersion: '3.10',
+                                poetryVersion: '2.1',
                                 customTags: ['2.1']
                             )
                         }
@@ -98,7 +105,7 @@ pipeline {
                                 imageName: "${PROJECT_NAME}",
                                 dockerfile: "${DOCKERFILE}",
                                 registryType: 'dockerhub',
-                                pythonVersion: '3.11'
+                                pythonVersion: '3.11',
                                 customTags: ['2.1']
                             )
                         }
@@ -111,7 +118,7 @@ pipeline {
                                 imageName: "${PROJECT_NAME}",
                                 dockerfile: "${DOCKERFILE}",
                                 registryType: 'dockerhub',
-                                pythonVersion: '3.12'
+                                pythonVersion: '3.12',
                                 customTags: ['2.1']
                             )
                         }
@@ -124,8 +131,8 @@ pipeline {
                                 imageName: "${PROJECT_NAME}",
                                 dockerfile: "${DOCKERFILE}",
                                 registryType: 'dockerhub',
-                                pythonVersion: '3.13'
-                                customTags: ['2.1']
+                                pythonVersion: '3.13',
+                                customTags: ['2.1'],
                                 isLatest: true,
                             )
                         }
