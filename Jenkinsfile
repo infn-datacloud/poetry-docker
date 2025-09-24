@@ -124,7 +124,7 @@ pipeline {
                                 registryType: 'dockerhub',
                                 pythonVersion: '3.13',
                                 customTags: ['2.1'],
-                                isLatest: true,
+                                isLatest: true
                             )
                         }
                     }
