@@ -15,15 +15,6 @@ pipeline {
         cron("${dockerRepository.periodicTrigger(env.BRANCH_NAME)}")
     }
 
-    agent {
-        node { label 'jenkins-node-label-1' }
-    }
-
-    environment {
-        PROJECT_NAME = 'poetry'
-        DOCKERFILE = './Dockerfile'
-    }
-
     stages {
         stage('Create and push images') {
             parallel {
