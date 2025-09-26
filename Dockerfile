@@ -15,7 +15,7 @@ RUN python -m ensurepip --upgrade \
 
 FROM poetry AS non-root-poetry
 
-ARG USERNAME=vscode
+ARG USERNAME=appuser
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
 
