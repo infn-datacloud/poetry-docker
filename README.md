@@ -24,7 +24,7 @@ Here a Dockerfile example using this image.
 ARG PYTHON_VERSION=3.12
 ARG POETRY_VERSION=2.1
 
-FROM indigopaas/poetry:${POETRY_VERSION}-${PYTHON_VERSION}
+FROM indigopaas/poetry:${POETRY_VERSION}-python${PYTHON_VERSION}
 
 WORKDIR /app
 
